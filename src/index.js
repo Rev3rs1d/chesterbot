@@ -11,20 +11,13 @@ const Message = require('./database').message
 //função axuliar
 const createMessageAndAddReply = async (message, type) => {
     const newMessage = new Message()
-    var reply, save
     var userMessage = type == 'sticker' ? message.reply_to_message.sticker.file_unique_id : message.reply_to_message.text
-
-     if(message.sticker)
-        reply = message.sticker.file_id
-     else
-        reply = message.text
+    var reply = message.sticker ? message.sticker.file_id : message.text, save
 
 try {
-    
     newMessage.message = userMessage
     newMessage.reply = reply
     save =  await newMessage.save()
-    
 } catch(error){
     console.log(error.message)
 }
