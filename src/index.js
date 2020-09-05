@@ -10,9 +10,9 @@ const Message = require('./database').message
 
 //função axuliar
 const createMessageAndAddReply = async (message, type) => {
-    const newMessage = new Message()
-    var userMessage = type == 'sticker' ? message.reply_to_message.sticker.file_unique_id : message.reply_to_message.text
-    var reply = message.sticker ? message.sticker.file_id : message.text, save
+    var newMessage = new Message(), save,
+    userMessage = type == 'sticker' ? message.reply_to_message.sticker.file_unique_id : message.reply_to_message.text,
+    reply = message.sticker ? message.sticker.file_id : message.text
 
 try {
     newMessage.message = userMessage
@@ -37,8 +37,8 @@ var userMessage, type
 
     if(await Message.exists({message: userMessage})){
 
-    let savedMessage = await Message.findOne({message: userMessage})
-    let replys = savedMessage.reply
+    let savedMessage = await Message.findOne({message: userMessage}),
+    replys = savedMessage.reply
 
     if(message.sticker)
         replys.push(message.sticker.file_id)
@@ -57,8 +57,8 @@ var userMessage, type
 }
 
 const answerUser = async (message, type) => {
-    var userMessage = message.sticker ? message.sticker.file_unique_id : message.text
-    const chatId = message.chat.id
+    const userMessage = message.sticker ? message.sticker.file_unique_id : message.text,
+    chatId = message.chat.id
 
     const options = {
         reply_to_message_id: message.message_id
@@ -79,9 +79,9 @@ const answerUser = async (message, type) => {
 }
 
 const main = async (message) => {
-    const reply_to_message = message.reply_to_message
-    const botDetails = await bot.getMe()
-    const botId = botDetails.id
+    const reply_to_message = message.reply_to_message,
+    botDetails = await bot.getMe(),
+    botId = botDetails.id
     
     if(reply_to_message && reply_to_message.from.id != botId)
         if(reply_to_message.sticker || reply_to_message.text)
