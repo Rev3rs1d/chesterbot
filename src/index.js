@@ -1,6 +1,6 @@
 'use strict'
 
-//removendo "deprecated Automatic..." e configurando variaveis de ambiente
+//configurando variaveis de ambiente
 require('dotenv').config()
 
 //constantes globais
@@ -8,7 +8,7 @@ const TelegramBot = require('node-telegram-bot-api')
 const bot = new TelegramBot(process.env.TELEGRAM_API, {polling: true}) //substitua "process.env.TELEGRAM_API" pelo token de seu bot
 const Message = require('./database').message
 
-//função axuliar
+//função auxiliar
 const createMessageAndAddReply = async (message, type) => {
     var newMessage = new Message(), save,
     userMessage = type == 'sticker' ? message.reply_to_message.sticker.file_unique_id : message.reply_to_message.text,
@@ -56,7 +56,7 @@ var userMessage, type
 }
 }
 
-const answerUser = async (message, type) => {
+const answerUser = async (message) => {
     const userMessage = message.sticker ? message.sticker.file_unique_id : message.text,
     chatId = message.chat.id
 
