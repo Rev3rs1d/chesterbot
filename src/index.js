@@ -46,7 +46,7 @@ var userMessage, type
         replys.push(message.text)
 
     try {
-        let updateMessage = await Message.findAndModify({message: userMessage}, {reply: replys})
+        let updateMessage = await Message.findOneAndUpdate({message: userMessage}, {reply: replys})
     } catch(error){
         console.log(error.message)
     }
@@ -57,17 +57,12 @@ var userMessage, type
 }
 
 const answerUser = async (message, type) => {
-    var userMessage
+    var userMessage = message.sticker ? message.sticker.file_unique_id : message.text
     const chatId = message.chat.id
 
     const options = {
         reply_to_message_id: message.message_id
     }
-
-    if(message.sticker)
-        userMessage = message.sticker.file_unique_id
-    else
-        userMessage = message.text
 
     if(await Message.exists({message: userMessage})){
         let reply = await Message.findOne({message: userMessage})
