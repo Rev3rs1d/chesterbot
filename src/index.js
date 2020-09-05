@@ -1,6 +1,6 @@
 'use strict'
 
-//removendo "deprecated Automatic..."
+//removendo "deprecated Automatic..." e configurando variaveis de ambiente
 require('dotenv').config()
 
 //constantes globais
