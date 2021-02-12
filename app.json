@@ -12,12 +12,12 @@
   "success_url": "https://t.me/type0f",
   "env": {
     "TELEGRAM_API": {
-      "description": "Make a bot at [BotFather](http://telegram.dog/BotFather) and get the token of your bot",
+      "description": "Make a bot at BotFather http://telegram.dog/BotFather and get the token of your bot",
       "value": "",
       "required": true
     },
   "DB_STRING": {
-      "description": "Create database in [MongoDB Atlas](https://www.mongodb.com/) create new cluster and get url for connection.",
+      "description": "Create database ate MongoDB Atlas https://www.mongodb.com/ create new cluster and get url for connection.",
       "value": "",
       "required": true
     }
