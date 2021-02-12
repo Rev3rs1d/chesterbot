@@ -1,0 +1,25 @@
+{
+  "name": "Chester easy deploy",
+  "description": "'Chester' é um chat bot do Telegram que aprenderá com as mensagens enviadas para ele",
+  "repository": "https://github.com/Lewizh11/chesterbot",
+  "logo": "https://avatars.githubusercontent.com/u/70781485?s=400&u=bd30683cebb73b085d5d9ab955cf7b8eda80905f&v=4",
+  "keywords": [
+  "node", 
+  "chatbot", 
+  "telegrambot"
+  ],
+  "website": "https://github.com/Rev3rs1d/chesterbot",
+  "success_url": "https://t.me/type0f",
+  "env": {
+    "TELEGRAM_API": {
+      "description": "Make a bot at BotFather http://telegram.dog/BotFather and get the token of your bot",
+      "value": "",
+      "required": true
+    },
+  "DB_STRING": {
+      "description": "Create database ate MongoDB Atlas https://www.mongodb.com/ create new cluster and get url for connection.",
+      "value": "",
+      "required": true
+    }
+  }
+}
