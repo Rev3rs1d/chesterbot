@@ -1,7 +1,16 @@
-'use strict'
-
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
 
-mongoose.connect(process.env.DB_STRING, {useNewUrlParser: true, useUnifiedTopology: true}) //substitua "process.env.DB_STRING" pela string de conexão de seu MongoDb
+dotenv.config()
+                                                                                                                                                                              
+mongoose.connect(process.env.DB_STRING, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
-exports.message = mongoose.model('Reply', require('./models/message'))
+const MessageModel = mongoose.model(
+    'Reply',
+    require('./models/message')
+)
+
+module.exports = { MessageModel }
