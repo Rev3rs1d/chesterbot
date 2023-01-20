@@ -1,6 +1,6 @@
 {
   "name": "chester",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,8 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "mongoose": "^5.10.2",
-    "node-telegram-bot-api": "^0.50.0"
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.8.4",
+    "node-telegram-bot-api": "^0.61.0"
+  },
+  "devDependencies": {
+    "yarn-upgrade-all": "^0.7.2"
   }
 }
