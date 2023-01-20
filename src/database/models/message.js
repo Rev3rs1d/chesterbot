@@ -1,6 +1,6 @@
-const { Schema } = require('mongoose')
+const {Schema} = require('mongoose')
 
-const schema = new Schema({
+const MessageSchema = new Schema({
     message: {
         unique: true,
         required: true,
@@ -11,5 +11,5 @@ const schema = new Schema({
         trim: true
     }
 })
-		
-module.exports = schema
+
+module.exports = MessageSchema
